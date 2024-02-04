@@ -6,6 +6,7 @@ Numeral class: holds any number, or variable
 """
 class Numeral:
     
+    # TODO: Make the init code make more sense and compress it a bit
     # Initialation code
     def __init__(self, value: float, name: str):
         
@@ -20,6 +21,9 @@ class Numeral:
         # If not then set variable to false
         else:
             self.variable = False
+
+            # Also temp adding fullForm here
+            self.fullForm = value
 
         # String: name The vairiable name (such as x) that declares the variable
         # Test to see if name is none, if it itn's then continue on
@@ -139,3 +143,9 @@ class Numeral:
                     # Return this one's full form plus the other's
                     # Get rid of the minus sign when printing, still there in the var tho
                     return f"{self.fullForm}+{other.fullForm[1:]}"
+    
+    # When a Numeral is printed just return the full form
+    def __str__(self):
+
+        # If it isn't a variable, then it just prints the value (look at __init__)
+        return str(self.fullForm)
