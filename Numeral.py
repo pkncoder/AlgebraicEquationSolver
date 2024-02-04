@@ -1,8 +1,8 @@
+# This is for custom errors
 from Exceptions import InvalidVariableName
 
 """
-Numeral class:
-    holds any int, float, or variable
+Numeral class: holds any number, or variable
 """
 class Numeral:
     
@@ -75,5 +75,16 @@ class Numeral:
             # Else, if they aren't the same, just print them adding eachother
             else:
 
-                # Return this one's full form plus the other's
-                return f"{self.fullForm}+{other.fullForm}"
+                # Test to see if the numbers are positive or not
+                if (other.value >= 0):
+                    
+                    # If they are then use a + in the middle of them
+                    # Return this one's full form plus the other's
+                    return f"{self.fullForm}+{other.fullForm}"
+                
+                # If they are not however, then exchange the plus for a minus
+                else:
+
+                    # Return this one's full form minus the other's
+                    # The minus comes from the other one's value
+                    return f"{self.fullForm}{other.fullForm}"
