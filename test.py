@@ -2,8 +2,8 @@
 from Numeral import Numeral
 
 # Make our two Numerals
-numOne = Numeral(14, "x")
-numTwo = Numeral(27, None)
+numOne = Numeral(14, "i")
+numTwo = Numeral(27)
 
 # Add them together (and print it)
 print(numOne + numTwo)

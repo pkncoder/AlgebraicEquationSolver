@@ -8,7 +8,7 @@ class Numeral:
     
     # TODO: Make the init code make more sense and compress it a bit
     # Initialation code
-    def __init__(self, value: float, name: str):
+    def __init__(self, value: float, name: str=None):
         
         # Float: value The amount that your Numeral holds
         self.value = value
@@ -26,6 +26,7 @@ class Numeral:
             self.fullForm = value
 
         # String: name The vairiable name (such as x) that declares the variable
+        # Name is a default of None
         # Test to see if name is none, if it itn's then continue on
         if name != None:
 
