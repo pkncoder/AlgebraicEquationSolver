@@ -47,6 +47,7 @@ class Numeral:
         # Test to see if one of them is a variable or not
         # If both are not, then normally add
         if (not self.variable and not other.variable):
+            
             # Return this numeral's value plus another numeral's value
             return self.value + other.value
 
