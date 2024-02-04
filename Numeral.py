@@ -7,24 +7,40 @@ Numeral class:
 class Numeral:
     
     # Initialation code
-    def __init__(self, value: float, variable: bool, name: str):
+    def __init__(self, value: float, name: str):
         
         # Float: value The amount that your Numeral holds
         self.value = value
 
         # Boolean: variable Declares if this is a variable or not
-        self.variable = variable
+        # Test for a name value first
+        if name != None:
+            self.variable = True
+        
+        # If not then set variable to false
+        else:
+            self.variable = False
 
         # String: name The vairiable name (such as x) that declares the variable
+        # Test to see if name is none, if it itn's then continue on
         if name != None:
+
+            # Test for name errors
             if len(name) != 1 or name == " ":
+                
+                # If the name is not formatted, then raise an error
                 raise InvalidVariableName("Invalid Name")
 
+            # If no errors occor, then set the variables
             else:
+
+                # Set the name accordingly
                 self.name = name
+
+                # Set the full form as the str(value) of the numeral plus the name
                 self.fullForm = str(value) + name
 
-                
+
     # When you add 2 Numerals together
     def __add__(self, other):
         
