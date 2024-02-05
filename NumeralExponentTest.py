@@ -13,9 +13,6 @@ class Numeral:
         # Float: value The amount that your Numeral holds
         this.value = value
 
-        # Int: exponent The current exponent that your Numeral has
-        this.exponent = exponent
-
         # Start testing for what to set variable, fullform, and name as
         # Start to see if there is a variable in the first place
         if name != None:
@@ -28,6 +25,9 @@ class Numeral:
 
             # If there are no errors
             else:
+
+                # Int: exponent The current exponent that your Numeral and variable has
+                this.exponent = exponent
 
                 # Boolean: variable Says if this Numeral is a variabole or not (V/F)
                 this.variable = True
