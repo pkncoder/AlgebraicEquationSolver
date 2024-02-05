@@ -55,16 +55,25 @@ class Numeral:
         # The way this works is by checking for every case, and handalling them approporitly
         # If neither Numeral is a variable 
         if not this.variable and not other.variable:
-            pass
+            
+            # This is a very simple thing, just return one value plus the other one
+            return this.value + other.value
 
         # If this Numeral is a variable, but not the other
         elif this.variable and not other.variable:
-            pass
+            
+            # Basicly the same as previos, just add on this one's variable name
+            # Make this value + other value a string for saftey
+            return str(this.value + other.value) + this.name
 
         # If this Numeral is not a variable, but the other one is
         elif not this.variable and other.variable:
-            pass
+            
+            # Same as before but other.name
+            return str(this.value + other.value) + other.name
 
         # Finally, if BOTH Numerals are variables
         else:
+            
+            # This is when things start to get difficult
             pass
