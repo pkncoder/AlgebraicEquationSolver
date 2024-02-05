@@ -195,3 +195,10 @@ class Numeral:
                     # Add a + in the middle since its the same as a --
                     # Remove just the plus, so start from index 1 and go onwards
                     return f"{this.fullForm}+{other.fullForm[1:]}"
+                
+    
+    # When a numeral is printed
+    def __str__(this):
+
+        # Just return the full form (string)
+        return str(this.fullForm)
