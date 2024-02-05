@@ -73,35 +73,14 @@ class Numeral:
         # If this Numeral is a variable, but not the other
         elif this.variable and not other.variable:
             
-            # Check for if the exponent is one or not
-            # If it does, do the regular thing
-            if this.exponent == 1:
-
-                # Basicly the same as previos, just add on this one's variable name
-                # Make this value + other value a string for saftey
-                return str(this.value + other.value) + this.name
-
-            # But if it doesn't we have to add on the exponent
-            else:
-
-                # Return string (this value plus the other) plus the name plus the carrot plus string (this exponent)
-                return str(this.value + other.value) + this.name + "^" + str(this.exponent)
+            # Return this full form + other var
+            return this.fullForm + "+" + str(other.value)
 
         # If this Numeral is not a variable, but the other one is
         elif not this.variable and other.variable:
                 
-            # Check for if the exponent is one or not
-            # If it does, do the regular thing
-            if other.exponent == 1:
-
-                # Same as before but other.name
-                return str(this.value + other.value) + other.name
-
-            # Do fance carrot stuuf otherwise
-            else:
-
-                # string(values add) + other name + carrot + string(other exponent)
-                return str(this.value + other.value) + other.name + "^" + str(other.exponent)
+            # Same as before but other.name
+            return str(this.value) + "+" + other.fullForm
 
 
         # Finally, if BOTH Numerals are variables
@@ -162,35 +141,14 @@ class Numeral:
         # If this Numeral is a variable, but not the other
         elif this.variable and not other.variable:
             
-            # Check for if the exponent is one or not
-            # If it does, do the regular thing
-            if this.exponent == 1:
-
-                # Basicly the same as previos, just sub. on this one's variable name
-                # Make this value - other value a string for saftey
-                return str(this.value - other.value) + this.name
-
-            # But if it doesn't we have to add on the exponent
-            else:
-
-                # Return string (this value minus the other) plus the name plus the carrot plus string (this exponent)
-                return str(this.value - other.value) + this.name + "^" + str(this.exponent)
+            # Just return as it is
+            return this.fullForm + "-" + str(other.value)
 
         # If this Numeral is not a variable, but the other one is
         elif not this.variable and other.variable:
             
-            # Check for if the exponent is one or not
-            # If it does, do the regular thing
-            if other.exponent == 1:
-                
-                # Same as before but other.name
-                return str(this.value - other.value) + other.name
-            
-            # Do fance carrot stuuf otherwise
-            else:
-
-                # string(values sub) + other name + carrot + string(other exponent)
-                return str(this.value - other.value) + other.name + "^" + str(other.exponent)
+            # Return as it is
+            return str(this.value) + "-" + other.fullForm
 
         # Finally, if BOTH Numerals are variables
         else:
