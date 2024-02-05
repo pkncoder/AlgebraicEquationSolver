@@ -105,3 +105,23 @@ class Numeral:
 
                     # string (Values) add + this var name + this string (exponent)
                     return str(this.value + other.value) + this.name + "^" + str(this.exponent)
+                
+            # Now that I'm thinking about this, it might not be so crazy
+            else:
+
+                # If the names OR the exponents aren't the same, then they have to be seperated anyways
+                # So just return both fullForms
+                # But also check for negitive num stuff
+                # No re-formatting
+                if other.value >= 0:
+                    
+                    # Return this full form plus the other one
+                    # Put it in an f-string so it doesn't look so weird
+                    return f"{this.fullForm}+{other.fullForm}"
+                
+                # Re-forrmating IS needed because of a negitive number
+                else:
+
+                    # Return this one "minus" the other one
+                    # This is done by just using the minus sign from the other.value as our opporator
+                    return f"{this.fullForm}{other.fullForm}"
