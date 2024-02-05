@@ -125,3 +125,73 @@ class Numeral:
                     # Return this one "minus" the other one
                     # This is done by just using the minus sign from the other.value as our opporator
                     return f"{this.fullForm}{other.fullForm}"
+                
+    
+    # When you subtract one Numeral to another
+    # *this is basicly just a copy of __add__
+    def __sub__(this, other):
+        
+        # The way this works is by checking for every case, and handalling them approporitly
+        # If neither Numeral is a variable 
+        if not this.variable and not other.variable:
+            
+            # This is a very simple thing, just return one value minus the other one
+            return this.value - other.value
+
+        # If this Numeral is a variable, but not the other
+        elif this.variable and not other.variable:
+            
+            # Basicly the same as previos, just sub. on this one's variable name
+            # Make this value - other value a string for saftey
+            return str(this.value - other.value) + this.name
+
+        # If this Numeral is not a variable, but the other one is
+        elif not this.variable and other.variable:
+            
+            # Same as before but other.name
+            return str(this.value - other.value) + other.name
+
+        # Finally, if BOTH Numerals are variables
+        else:
+            
+            # This is when things start to get difficult
+            # The main problem when it comes to this is two things
+            # Variable names
+            # Exponent values
+            # Start by checking to see if both names are the same and both exponents are the same
+            # Basic case: just add the constants, and keep everything else the same
+            if this.name == other.name and this.exponent == other.exponent:
+
+                # Test to see if the exponent is one or not, because we don't need it if it is
+                if this.exponent == 1:
+
+                    # string of values subtracted plus the var name
+                    return str(this.value - other.value) + this.name
+
+                # If it isn't one, then do the fancy carrot stuff
+                else:
+
+                    # string (Values) subtracted + this var name + this string (exponent)
+                    return str(this.value - other.value) + this.name + "^" + str(this.exponent)
+                
+            # Now that I'm thinking about this, it might not be so crazy
+            else:
+
+                # If the names OR the exponents aren't the same, then they have to be seperated anyways
+                # So just return both fullForms
+                # But also check for negitive num stuff
+                # No re-formatting
+                if other.value >= 0:
+                    
+                    # Return this full form minus the other one
+                    # Put it in an f-string so it doesn't look so weird
+                    return f"{this.fullForm}-{other.fullForm}"
+                
+                # Re-forrmating IS needed because of a negitive number
+                else:
+
+                    # This part is a bit weird
+                    # Return each full form with the minus taken out of other (the value isn't modified)
+                    # Add a + in the middle since its the same as a --
+                    # Remove just the plus, so start from index 1 and go onwards
+                    return f"{this.fullForm}+{other.fullForm[1:]}"
