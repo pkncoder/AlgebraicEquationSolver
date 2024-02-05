@@ -237,7 +237,33 @@ class Numeral:
                     # Remove just the plus, so start from index 1 and go onwards
                     return f"{this.fullForm}+{other.fullForm[1:]}"
                 
-    
+
+    # Multiplication one numeral by another
+    # I am sooooo excited
+    def __mul__(this, other):
+        
+        # Well, its the same thing as previously
+        # Break it up into different cases on what is a variable and what isn't
+
+        # Start
+        # If neither is a variable
+        if not this.variable and not other.variable:
+            pass
+
+        # If this one is a variable, but the other one isn't
+        elif this.variable and not other.variable:
+            pass
+
+        # If the other one is a variable and this one isn't
+        elif not this.variable and other.variable:
+            pass
+
+        # If BOTH are variables
+        else:
+            pass
+        
+
+
     # When a numeral is printed
     def __str__(this):
 
