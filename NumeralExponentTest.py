@@ -38,10 +38,10 @@ class Numeral:
                 # String: fullForm The main/usual form of this Numeral
                 # Made by taking the string of value and adding on name ex. 3x, -93t
                 # Also think about exponent, because that is in the form too
-                if exponent > 1:
+                if exponent != 1:
 
                     # The value plus the var name plus a carrot with the exponent
-                    this.fullForm = str(value) + name + "^" + exponent
+                    this.fullForm = str(value) + name + "^" + str(exponent)
                 
                 # If the exponent is not one, then add the carrot
                 else:
@@ -91,6 +91,17 @@ class Numeral:
             # Variable names
             # Exponent values
             # Start by checking to see if both names are the same and both exponents are the same
-            # Basic case
-            # if this.name == other.name and this.exponent == other.exponent:
-            pass
+            # Basic case: just add the constants, and keep everything else the same
+            if this.name == other.name and this.exponent == other.exponent:
+
+                # Test to see if the exponent is one or not, because we don't need it if it is
+                if this.exponent == 1:
+
+                    # string of values added plus the var name
+                    return str(this.value + other.value) + this.name
+
+                # If it isn't one, then do the fancy carrot stuff
+                else:
+
+                    # string (Values) add + this var name + this string (exponent)
+                    return str(this.value + other.value) + this.name + "^" + str(this.exponent)
