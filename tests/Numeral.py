@@ -243,7 +243,21 @@ class Numeral:
 
         # If BOTH are variables
         else:
-            pass
+            
+            # Test for if the two of the variables can even go together
+            if this.name == other.name:
+
+                # If they can then start to multiply them
+                # First, multiply the constants together
+                # Then grab this one's name
+                # Then add the exponents
+                return str(this.value * other.value) + this.name + "^" + str(this.exponent + other.exponent)
+
+            # If they can't then just return them multipling eachother
+            else:
+
+                # Return each's full form multipling
+                return this.fullForm + "*" + other.fullForm
         
 
 

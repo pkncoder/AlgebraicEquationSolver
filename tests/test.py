@@ -2,11 +2,11 @@
 from Numeral import Numeral
 
 # Make our two Numerals
-numTwo = Numeral(4, "x")
-numOne = Numeral(2, "x")
+numOne = Numeral(4, "x")
+numTwo = Numeral(1, "x")
 
 # Add them together (and print it)
-print(numOne + numTwo)
+print(numOne * numTwo)
 
 # What happens when you print one
 print(f"\n{numOne}")
