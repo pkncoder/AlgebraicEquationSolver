@@ -248,15 +248,40 @@ class Numeral:
         # Start
         # If neither is a variable
         if not this.variable and not other.variable:
-            pass
+            
+            # This var value times the other
+            return str(this.value * other.value)
 
         # If this one is a variable, but the other one isn't
         elif this.variable and not other.variable:
-            pass
+            
+            # Check for exponent stuff
+            # If it is equal to one, no fance stuff needs to be done (oo that rymes)
+            if this.exponent == 1:
+
+                # Values times eachother, add on this var name
+                return str(this.value * other.value) + this.name
+            
+            # But if the exponent DOES need to be shown
+            else:
+                
+                # Values times eachother, add on this var name, add on this var exponent
+                return str(this.value * other.value) + this.name + "^" + str(this.exponent)
 
         # If the other one is a variable and this one isn't
         elif not this.variable and other.variable:
-            pass
+            
+            # no Exponenet stuff
+            if other.exponent == 1:
+
+                # Values timees eachother, but add on the OTHER var name
+                return str(this.value * other.value) + other.name
+            
+            # If exponenet stuff IS needed
+            else:
+
+                # Values, timesed, other name, other exponent
+                return str(this.value * other.value) + other.name + "^" + str(other.exponenet)
 
         # If BOTH are variables
         else:
