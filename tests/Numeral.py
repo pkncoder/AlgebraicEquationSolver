@@ -281,7 +281,7 @@ class Numeral:
             else:
 
                 # Values, timesed, other name, other exponent
-                return str(this.value * other.value) + other.name + "^" + str(other.exponenet)
+                return str(this.value * other.value) + other.name + "^" + str(other.exponent)
 
         # If BOTH are variables
         else:
