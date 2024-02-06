@@ -3,7 +3,7 @@ from Numeral import Numeral
 
 # Make our two Numerals
 numOne = Numeral(4, "x")
-numTwo = Numeral(1, "x")
+numTwo = Numeral(2, "x")
 
 # Add them together (and print it)
 print(numOne * numTwo)
