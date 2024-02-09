@@ -7,9 +7,9 @@ def simplify(equation):
     tokenList = splitEquation(equation)
     
     # Step two, parse all the way through the equation to simplify everything
-    #simplifiedEquation = solveIplyEquation(tokenList)
 
     return tokenList
+
 
 def splitEquation(equation):
     # Clarify some variables to save data
