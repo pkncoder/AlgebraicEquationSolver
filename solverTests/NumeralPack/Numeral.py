@@ -1,5 +1,5 @@
 # This is for custom errors
-from Exceptions import InvalidVariableName
+from Exeptions import InvalidVariableName
 
 """
 Numeral class: holds any number, or variable
@@ -68,7 +68,8 @@ class Numeral:
         if not this.variable and not other.variable:
             
             # This is a very simple thing, just return one value plus the other one
-            return this.value + other.value
+            # Return it as a new Numeral so we can use it later
+            return Numeral(this.value + other.value)
 
         # If this Numeral is a variable, but not the other
         elif this.variable and not other.variable:
@@ -97,14 +98,14 @@ class Numeral:
                 # Test to see if the exponent is one or not, because we don't need it if it is
                 if this.exponent == 1:
 
-                    # string of values added plus the var name
-                    return str(this.value + other.value) + this.name
+                    # Numeral(string of values added plus the var name)
+                    return Numeral(this.value + other.value, this.name)
 
                 # If it isn't one, then do the fancy carrot stuff
                 else:
 
-                    # string (Values) add + this var name + this string (exponent)
-                    return str(this.value + other.value) + this.name + "^" + str(this.exponent)
+                    # Numeral(string (Values) add + this var name + this string (exponent))
+                    return Numeral(this.value + other.value, this.name, this.exponent)
                 
             # Now that I'm thinking about this, it might not be so crazy
             else:
@@ -136,7 +137,8 @@ class Numeral:
         if not this.variable and not other.variable:
             
             # This is a very simple thing, just return one value minus the other one
-            return this.value - other.value
+            # Return it as a new Numeral so we can use it later
+            return Numeral(this.value + other.value)
 
         # If this Numeral is a variable, but not the other
         elif this.variable and not other.variable:
@@ -164,14 +166,14 @@ class Numeral:
                 # Test to see if the exponent is one or not, because we don't need it if it is
                 if this.exponent == 1:
 
-                    # string of values subtracted plus the var name
-                    return str(this.value - other.value) + this.name
+                    # Numeral(string of values minus plus the var name)
+                    return Numeral(this.value - other.value, this.name)
 
                 # If it isn't one, then do the fancy carrot stuff
                 else:
 
-                    # string (Values) subtracted + this var name + this string (exponent)
-                    return str(this.value - other.value) + this.name + "^" + str(this.exponent)
+                    # Numeral(string (Values) minus + this var name + this string (exponent))
+                    return Numeral(this.value - other.value, this.name, this.exponent)
                 
             # Now that I'm thinking about this, it might not be so crazy
             else:
@@ -208,7 +210,7 @@ class Numeral:
         if not this.variable and not other.variable:
             
             # This var value times the other
-            return str(this.value * other.value)
+            return Numeral(this.value * other.value)
 
         # If this one is a variable, but the other one isn't
         elif this.variable and not other.variable:
@@ -218,13 +220,13 @@ class Numeral:
             if this.exponent == 1:
 
                 # Values times eachother, add on this var name
-                return str(this.value * other.value) + this.name
+                return Numeral((this.value * other.value), this.name)
             
             # But if the exponent DOES need to be shown
             else:
                 
                 # Values times eachother, add on this var name, add on this var exponent
-                return str(this.value * other.value) + this.name + "^" + str(this.exponent)
+                return Numeral((this.value * other.value), this.name, this.exponent)
 
         # If the other one is a variable and this one isn't
         elif not this.variable and other.variable:
@@ -233,13 +235,13 @@ class Numeral:
             if other.exponent == 1:
 
                 # Values timees eachother, but add on the OTHER var name
-                return str(this.value * other.value) + other.name
+                return Numeral((this.value * other.value), other.name)
             
             # If exponenet stuff IS needed
             else:
 
                 # Values, timesed, other name, other exponent
-                return str(this.value * other.value) + other.name + "^" + str(other.exponent)
+                return Numeral((this.value * other.value), other.name, other.exponent)
 
         # If BOTH are variables
         else:
@@ -251,7 +253,7 @@ class Numeral:
                 # First, multiply the constants together
                 # Then grab this one's name
                 # Then add the exponents
-                return str(this.value * other.value) + this.name + "^" + str(this.exponent + other.exponent)
+                return Numeral((this.value * other.value), this.name, (this.exponent + other.exponent))
 
             # If they can't then just return them multipling eachother
             else:
