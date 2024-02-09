@@ -1,5 +1,5 @@
 # This is for custom errors
-from solverTests.NumeralPack.Exceptions import InvalidVariableName
+from NumeralPack.Exceptions import InvalidVariableName
 
 """
 Numeral class: holds any number, or variable

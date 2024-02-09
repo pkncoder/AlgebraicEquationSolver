@@ -5,8 +5,11 @@ def simplify(equation):
     
     # Step one: split up the equation to a series of tokens
     tokenList = splitEquation(equation)
+
+    # Step Two: Numeral-ify everything that is needed
+    tokenList = Numeralify(tokenList)
     
-    # Step two, parse all the way through the equation to simplify everything
+    # Step three, parse all the way through the equation to simplify everything
 
     return tokenList
 
@@ -57,4 +60,35 @@ def splitEquation(equation):
             tokenList += [char]
     
     # Return our final token list
+    return tokenList
+
+def Numeralify(tokenList):
+    
+    # Start looping through each list object
+    for i in range(len(tokenList)):
+
+        # Declare item for simplicity
+        item = tokenList[i]
+
+        # Start checking to see if it is an opporaor
+        if re.findall(r"[-+*/]",  item):
+
+            # If it is then just skip over it
+            pass
+        
+        # If it isn't, then turn it into a new Numeral
+        else:
+
+            # Get the two parts of the variable
+            if re.findall(r"[a-zA-Z]", item):
+                coeff = item[0:-1]
+                varName = item[-1]
+
+                tokenList[i] = Numeral(float(coeff), str(varName))
+            
+            else:
+                coeff = item
+
+                tokenList[i] = Numeral(float(coeff))
+
     return tokenList

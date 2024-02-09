@@ -4,4 +4,5 @@ equation = input("Input your equation to simplify it: ")
 
 simpleEquation = simplify(equation)
 
-print(simpleEquation)
+for numeral in simpleEquation:
+    print(numeral)
