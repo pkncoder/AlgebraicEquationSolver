@@ -1,5 +1,5 @@
 # This is for custom errors
-from Exeptions import InvalidVariableName
+from Exceptions import InvalidVariableName
 
 """
 Numeral class: holds any number, or variable
@@ -260,6 +260,33 @@ class Numeral:
 
                 # Return each's full form multipling
                 return this.fullForm + "*" + other.fullForm
+    
+    # Finally, time for deviding
+    def __div__(this, other):
+        
+        # Start getting all the cases
+        # Both normal nums
+        if not this.variable and not other.variable:
+            pass
+
+        # This one var, other not
+        elif this.variable and not other.variable:
+            pass
+
+        # This one not, other is
+        elif not this.variable and other.variable:
+            pass
+
+        # Both are variables
+        else:
+
+            # If they are able to combine
+            if this.name == other.name:
+                pass
+
+            # If they can't
+            else:
+                pass
         
 
 
