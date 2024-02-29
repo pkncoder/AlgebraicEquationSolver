@@ -3,10 +3,10 @@ from Numeral import Numeral
 
 # Make our two Numerals
 numOne = Numeral(4, "x")
-numTwo = Numeral(2, "x")
+numTwo = Numeral(8)
 
 # Add them together (and print it)
-print(numOne * numTwo)
+print(numOne / numTwo)
 
 # What happens when you print one
 print(f"\n{numOne}")

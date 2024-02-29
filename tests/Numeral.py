@@ -262,20 +262,46 @@ class Numeral:
                 return this.fullForm + "*" + other.fullForm
     
     # Finally, time for deviding
-    def __div__(this, other):
+    def __truediv__(this, other):
         
         # Start getting all the cases
         # Both normal nums
         if not this.variable and not other.variable:
-            pass
+            
+            # Return the numeral devided by the other numeral
+            return Numeral((this.value / other.value))
 
         # This one var, other not
         elif this.variable and not other.variable:
-            pass
+            
+            # Test to see if we need to do nothing with this varialble
+            if (this.exponent == 1):
+
+                # Return both the values devided by eachother, then the name added on
+                # No exponent due to it just being one
+                return Numeral((this.value / other.value), this.name)
+            
+            # If we do need to  put on the exponent however
+            else:
+
+                # Return both values / eachother, add this name, add this exponent
+                return Numeral((this.value / other.value), this.name, this.exponent)
 
         # This one not, other is
         elif not this.variable and other.variable:
-            pass
+            
+            # Test to see if we need to do nothing with this varialble
+            if (other.exponent == 1):
+
+                # Return both the values devided by eachother, then the name added on
+                # No exponent due to it just being one
+                return Numeral((this.value / other.value), other.name)
+            
+            # If we do need to  put on the exponent however
+            else:
+
+                # Return both values / eachother, add other name, add other exponent
+                return Numeral((this.value / other.value), other.name, other.exponent)
 
         # Both are variables
         else:
